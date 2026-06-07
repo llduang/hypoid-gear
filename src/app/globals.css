@@ -1,0 +1,1242 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ============================================================
+   Hypoid Gear Visualization - Custom CSS
+   ============================================================ */
+
+:root {
+  --hypoid-amber: #f59e0b;
+  --hypoid-emerald: #10b981;
+  --hypoid-red: #ef4444;
+  --hypoid-purple: #c084fc;
+  --hypoid-blue: #3b82f6;
+  --hypoid-pink: #f472b6;
+  --hypoid-cyan: #22d3ee;
+  --hypoid-panel-bg: #0d0d14;
+  --hypoid-page-bg: #0a0a0f;
+  --hypoid-text: rgba(255, 255, 255, 0.85);
+  --hypoid-text-dim: rgba(255, 255, 255, 0.4);
+  --hypoid-text-faint: rgba(255, 255, 255, 0.25);
+  --hypoid-border: rgba(255, 255, 255, 0.1);
+  --hypoid-border-faint: rgba(255, 255, 255, 0.06);
+  --hypoid-bg-hover: rgba(255, 255, 255, 0.04);
+  --hypoid-bg-subtle: rgba(255, 255, 255, 0.02);
+  --hypoid-glass-bg: rgba(13, 13, 20, 0.75);
+  --hypoid-header-gradient-from: var(--hypoid-panel-bg);
+  --hypoid-header-gradient-via: #0f0f1a;
+  --hypoid-header-gradient-to: var(--hypoid-panel-bg);
+}
+
+/* ============================================================
+   Theme: Midnight (default dark)
+   ============================================================ */
+[data-theme="midnight"] {
+  --hypoid-panel-bg: #0d0d14;
+  --hypoid-page-bg: #0a0a0f;
+  --hypoid-text: rgba(255, 255, 255, 0.85);
+  --hypoid-text-dim: rgba(255, 255, 255, 0.4);
+  --hypoid-text-faint: rgba(255, 255, 255, 0.25);
+  --hypoid-border: rgba(255, 255, 255, 0.1);
+  --hypoid-border-faint: rgba(255, 255, 255, 0.06);
+  --hypoid-bg-hover: rgba(255, 255, 255, 0.04);
+  --hypoid-bg-subtle: rgba(255, 255, 255, 0.02);
+  --hypoid-glass-bg: rgba(13, 13, 20, 0.75);
+  --hypoid-header-gradient-from: #0d0d14;
+  --hypoid-header-gradient-via: #0f0f1a;
+  --hypoid-header-gradient-to: #0d0d14;
+}
+
+/* ============================================================
+   Theme: Ocean (dark blue tones)
+   ============================================================ */
+[data-theme="ocean"] {
+  --hypoid-panel-bg: #0a1628;
+  --hypoid-page-bg: #061220;
+  --hypoid-text: rgba(200, 230, 255, 0.85);
+  --hypoid-text-dim: rgba(150, 200, 240, 0.4);
+  --hypoid-text-faint: rgba(120, 180, 230, 0.25);
+  --hypoid-border: rgba(80, 160, 220, 0.12);
+  --hypoid-border-faint: rgba(60, 140, 200, 0.07);
+  --hypoid-bg-hover: rgba(60, 150, 220, 0.06);
+  --hypoid-bg-subtle: rgba(40, 120, 200, 0.03);
+  --hypoid-glass-bg: rgba(10, 22, 40, 0.75);
+  --hypoid-header-gradient-from: #0a1628;
+  --hypoid-header-gradient-via: #0c1a30;
+  --hypoid-header-gradient-to: #0a1628;
+}
+
+/* ============================================================
+   Theme: Paper (light theme)
+   ============================================================ */
+[data-theme="paper"] {
+  --hypoid-panel-bg: #f8f7f4;
+  --hypoid-page-bg: #ffffff;
+  --hypoid-text: rgba(30, 30, 30, 0.85);
+  --hypoid-text-dim: rgba(60, 60, 60, 0.55);
+  --hypoid-text-faint: rgba(80, 80, 80, 0.35);
+  --hypoid-border: rgba(0, 0, 0, 0.1);
+  --hypoid-border-faint: rgba(0, 0, 0, 0.06);
+  --hypoid-bg-hover: rgba(0, 0, 0, 0.04);
+  --hypoid-bg-subtle: rgba(0, 0, 0, 0.02);
+  --hypoid-glass-bg: rgba(248, 247, 244, 0.85);
+  --hypoid-header-gradient-from: #f8f7f4;
+  --hypoid-header-gradient-via: #f0efec;
+  --hypoid-header-gradient-to: #f8f7f4;
+}
+
+/* Paper theme overrides for specific elements */
+[data-theme="paper"] .hypoid-glass-panel {
+  background: rgba(248, 247, 244, 0.85);
+  border-left-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="paper"] .hypoid-panel-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="paper"] .hypoid-panel-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="paper"] .hypoid-section-header::after {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.06), transparent);
+}
+
+[data-theme="paper"] .hypoid-value-card:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="paper"] .hypoid-hover-tooltip {
+  background: rgba(30, 30, 30, 0.9);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="paper"] .hypoid-measure-panel {
+  background: rgba(30, 30, 30, 0.85);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="paper"] .hypoid-kbd {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="paper"] .hypoid-coord-display {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+/* Auto-play pulse animation */
+@keyframes autoplay-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+}
+
+.hypoid-autoplay-pulse {
+  animation: autoplay-pulse 1.5s ease-in-out infinite;
+}
+
+/* Gradient border effect on hover for computed value cards */
+@keyframes gradient-border-rotate {
+  0% { --border-angle: 0deg; }
+  100% { --border-angle: 360deg; }
+}
+
+.hypoid-value-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hypoid-value-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--hypoid-border);
+}
+
+.hypoid-value-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--hypoid-amber), transparent 40%, var(--hypoid-emerald));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.hypoid-value-card:hover::before {
+  opacity: 0.6;
+}
+
+/* Section header decorative line */
+.hypoid-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hypoid-section-header::before {
+  content: '';
+  flex: 0 0 3px;
+  height: 10px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--hypoid-amber), var(--hypoid-emerald));
+}
+
+.hypoid-section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--hypoid-border-faint), transparent);
+}
+
+/* Smooth transitions for interactive elements */
+.hypoid-interactive {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hypoid-interactive:hover {
+  transform: scale(1.02);
+}
+
+.hypoid-interactive:active {
+  transform: scale(0.98);
+}
+
+/* Mobile panel backdrop */
+.hypoid-panel-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease;
+}
+
+/* Custom scrollbar for panel */
+.hypoid-panel-scroll {
+  scroll-behavior: smooth;
+}
+
+.hypoid-panel-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* scrollbar-track is defined in UI Polish section below */
+
+.hypoid-panel-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+}
+
+.hypoid-panel-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Smooth toggle transitions */
+.hypoid-toggle-row {
+  transition: all 0.25s ease;
+}
+
+.hypoid-toggle-row:hover {
+  background: var(--hypoid-bg-hover);
+}
+
+/* ============================================================
+   Glassmorphism Control Panel
+   ============================================================ */
+
+.hypoid-glass-panel {
+  background: var(--hypoid-glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-left: 1px solid var(--hypoid-border-faint);
+}
+
+/* ============================================================
+   Micro-Animations
+   ============================================================ */
+
+/* Step toggle bounce */
+@keyframes step-bounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.03); }
+  60% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+.hypoid-step-bounce {
+  animation: step-bounce 0.3s ease-out;
+}
+
+/* Value flash on change */
+@keyframes value-flash {
+  0% { background-color: rgba(245, 158, 11, 0.2); }
+  100% { background-color: transparent; }
+}
+
+.hypoid-value-flash {
+  animation: value-flash 0.5s ease-out;
+}
+
+/* Smooth slide-down for expandable sections */
+.hypoid-expandable {
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.hypoid-expandable-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.hypoid-expandable-visible {
+  max-height: 800px;
+  opacity: 1;
+}
+
+/* ============================================================
+   Advanced Panel Section Animations
+   ============================================================ */
+
+/* Expandable section with smooth height + slide-in animation */
+.hypoid-section-content {
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.35s ease,
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hypoid-section-content[data-state="collapsed"] {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.hypoid-section-content[data-state="expanded"] {
+  max-height: 600px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Toggle arrow rotation */
+.hypoid-toggle-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+}
+
+.hypoid-toggle-arrow[data-open="true"] {
+  transform: rotate(90deg);
+}
+
+/* Content slide-in animation */
+@keyframes section-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hypoid-section-slide-in {
+  animation: section-slide-in 0.35s ease-out;
+}
+
+/* Preset button hover glow */
+.hypoid-preset-btn {
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.hypoid-preset-btn::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  box-shadow: 0 0 8px 2px rgba(245, 158, 11, 0.15);
+}
+
+.hypoid-preset-btn:hover::after {
+  opacity: 1;
+}
+
+/* Active preset pulse */
+@keyframes preset-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.15); }
+  50% { box-shadow: 0 0 0 4px rgba(255, 255, 255, 0); }
+}
+
+.hypoid-preset-active {
+  animation: preset-pulse 2s ease-in-out infinite;
+}
+
+/* Timeline scrubber press effect */
+.hypoid-scrubber-btn {
+  transition: all 0.15s ease;
+}
+
+.hypoid-scrubber-btn:active {
+  transform: scale(0.9) translateY(1px);
+}
+
+/* Hover tooltip overlay */
+.hypoid-hover-tooltip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+/* Measurement panel */
+.hypoid-measure-panel {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Geist Mono', monospace;
+}
+
+/* Fullscreen transition */
+.hypoid-fullscreen-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Help modal keyboard shortcut badge */
+.hypoid-kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   Enhanced Slider Styling
+   ============================================================ */
+
+/* Slider track with colored fill */
+.hypoid-slider-amber [data-orientation="horizontal"] > span:first-child {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0.08));
+}
+
+.hypoid-slider-emerald [data-orientation="horizontal"] > span:first-child {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.08));
+}
+
+.hypoid-slider-red [data-orientation="horizontal"] > span:first-child {
+  background: linear-gradient(90deg, rgba(239, 68, 68, 0.3), rgba(239, 68, 68, 0.08));
+}
+
+/* Slider thumb glow effects */
+.hypoid-slider-amber [role="slider"] {
+  box-shadow: 0 0 8px 2px rgba(245, 158, 11, 0.25), 0 0 2px 1px rgba(245, 158, 11, 0.15);
+}
+
+.hypoid-slider-emerald [role="slider"] {
+  box-shadow: 0 0 8px 2px rgba(16, 185, 129, 0.25), 0 0 2px 1px rgba(16, 185, 129, 0.15);
+}
+
+.hypoid-slider-red [role="slider"] {
+  box-shadow: 0 0 8px 2px rgba(239, 68, 68, 0.25), 0 0 2px 1px rgba(239, 68, 68, 0.15);
+}
+
+/* Slider thumb hover enhancement */
+.hypoid-slider-amber [role="slider"]:hover {
+  box-shadow: 0 0 12px 4px rgba(245, 158, 11, 0.35), 0 0 4px 2px rgba(245, 158, 11, 0.2);
+}
+
+.hypoid-slider-emerald [role="slider"]:hover {
+  box-shadow: 0 0 12px 4px rgba(16, 185, 129, 0.35), 0 0 4px 2px rgba(16, 185, 129, 0.2);
+}
+
+.hypoid-slider-red [role="slider"]:hover {
+  box-shadow: 0 0 12px 4px rgba(239, 68, 68, 0.35), 0 0 4px 2px rgba(239, 68, 68, 0.2);
+}
+
+/* ============================================================
+   Value Card Number Animation
+   ============================================================ */
+
+@keyframes number-count-up {
+  0% { opacity: 0.6; transform: translateY(2px); }
+  50% { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.hypoid-value-animate {
+  animation: number-count-up 0.35s ease-out;
+}
+
+/* ============================================================
+   Timeline Enhanced
+   ============================================================ */
+
+@keyframes timeline-dash-march {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -12; }
+}
+
+.hypoid-timeline-dash {
+  animation: timeline-dash-march 1.5s linear infinite;
+}
+
+/* Active step glow */
+@keyframes timeline-step-glow {
+  0%, 100% { box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.1); }
+  50% { box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.2); }
+}
+
+.hypoid-timeline-active-glow {
+  animation: timeline-step-glow 1.5s ease-in-out infinite;
+}
+
+/* Mini coordinate display */
+.hypoid-coord-display {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  opacity: 0.15;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   Contact Zone Glow (Gear Meshing)
+   ============================================================ */
+
+@keyframes contact-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.hypoid-contact-glow {
+  animation: contact-pulse 1.2s ease-in-out infinite;
+}
+
+/* ============================================================
+   Theme Switcher Button
+   ============================================================ */
+
+.hypoid-theme-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: middle;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="paper"] .hypoid-theme-dot {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================
+   UI Polish: Panel Section Hover Effects
+   ============================================================ */
+
+.hypoid-section-header {
+  transition: all 0.2s ease;
+}
+
+.hypoid-section-header:hover {
+  text-shadow: 0 0 6px rgba(245, 158, 11, 0.15);
+}
+
+.hypoid-section-header:hover::before {
+  box-shadow: 0 0 6px 2px rgba(245, 158, 11, 0.2);
+}
+
+/* Section container hover highlight */
+.hypoid-section-hover {
+  transition: background 0.2s ease;
+  border-radius: 6px;
+}
+
+.hypoid-section-hover:hover {
+  background: var(--hypoid-bg-subtle);
+}
+
+/* ============================================================
+   UI Polish: Improved Scrollbar and Panel Polish
+   ============================================================ */
+
+/* More visible scrollbar track */
+.hypoid-panel-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 2px;
+}
+
+[data-theme="paper"] .hypoid-panel-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Panel top-border gradient */
+.hypoid-panel-top-gradient {
+  position: relative;
+}
+
+.hypoid-panel-top-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--hypoid-amber), var(--hypoid-emerald));
+  opacity: 0.5;
+  z-index: 10;
+}
+
+/* Section separator gradient */
+.hypoid-separator-gradient {
+  height: 1px;
+  background: linear-gradient(90deg, var(--hypoid-amber), transparent 30%, transparent 70%, var(--hypoid-emerald));
+  opacity: 0.15;
+  border: none;
+  margin: 0;
+}
+
+/* Value card inner shadow for depth */
+.hypoid-value-depth {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="paper"] .hypoid-value-depth {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================================
+   UI Polish: Badge Scale Animation on Value Change
+   ============================================================ */
+
+@keyframes badge-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.hypoid-badge-pop {
+  animation: badge-pop 0.3s ease-out;
+}
+
+/* ============================================================
+   UI Polish: Step Group Fade-In Animation
+   ============================================================ */
+
+@keyframes step-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hypoid-step-fade-in {
+  animation: step-fade-in 0.3s ease-out;
+}
+
+/* ============================================================
+   UI Polish: Glow Ring Pulse for Cone Bases
+   ============================================================ */
+
+@keyframes glow-ring-pulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+}
+
+/* ============================================================
+   UI Polish: Footer Status Bar
+   ============================================================ */
+
+.hypoid-footer-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: 'Geist Mono', monospace;
+}
+
+.hypoid-footer-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ============================================================
+   UI Polish: Responsive Step Toggles (Mobile)
+   ============================================================ */
+
+@media (max-width: 767px) {
+  .hypoid-steps-mobile-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 4px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .hypoid-steps-mobile-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hypoid-steps-mobile-scroll > div {
+    flex: 0 0 auto;
+    min-width: max-content;
+  }
+}
+
+/* Camera preset buttons wrap on small screens */
+.hypoid-camera-presets {
+  flex-wrap: wrap;
+}
+
+/* Header badges collapse on small screens */
+@media (max-width: 767px) {
+  .hypoid-header-badges .hypoid-badge-label {
+    display: none;
+  }
+}
+
+/* ============================================================
+   Loading Splash Screen
+   ============================================================ */
+
+.hypoid-splash-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--hypoid-page-bg);
+  transition: opacity 0.6s ease-out;
+  pointer-events: none;
+}
+
+.hypoid-splash-screen.hypoid-splash-fade {
+  opacity: 0;
+}
+
+.hypoid-splash-icon {
+  font-size: 48px;
+  color: var(--hypoid-amber);
+  animation: hypoid-splash-spin 1.2s linear infinite;
+}
+
+@keyframes hypoid-splash-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hypoid-splash-text {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--hypoid-text-dim);
+  font-family: 'Geist Sans', sans-serif;
+}
+
+/* ============================================================
+   Action Button Ripple Effect
+   ============================================================ */
+
+.hypoid-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.hypoid-ripple::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.25);
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hypoid-ripple:active::after {
+  animation: hypoid-ripple-anim 0.5s ease-out;
+}
+
+@keyframes hypoid-ripple-anim {
+  0% {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   Recording Indicator
+   ============================================================ */
+
+@keyframes record-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hypoid-record-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+  font-size: 11px;
+  font-weight: 600;
+  animation: record-pulse 1s ease-in-out infinite;
+}
+
+.hypoid-record-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: record-pulse 1s ease-in-out infinite;
+}
+
+/* ============================================================
+   Tolerance Analysis Table
+   ============================================================ */
+
+.hypoid-tolerance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9px;
+  font-family: 'Geist Mono', monospace;
+}
+
+.hypoid-tolerance-table th,
+.hypoid-tolerance-table td {
+  padding: 3px 5px;
+  text-align: center;
+  border-bottom: 1px solid var(--hypoid-border-faint);
+}
+
+.hypoid-tolerance-table th {
+  color: var(--hypoid-text-dim);
+  font-weight: 500;
+}
+
+.hypoid-tolerance-table td {
+  color: var(--hypoid-text);
+}
+
+.hypoid-tolerance-up {
+  color: #ef4444;
+}
+
+.hypoid-tolerance-down {
+  color: #10b981;
+}
+
+/* ============================================================
+   Parameter History SVG Chart
+   ============================================================ */
+
+.hypoid-history-chart {
+  width: 100%;
+  border-radius: 6px;
+  background: var(--hypoid-bg-subtle);
+  border: 1px solid var(--hypoid-border-faint);
+}
+
+.hypoid-history-tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--hypoid-border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--hypoid-text);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Contact Ellipse Pulsing Glow
+   ============================================================ */
+
+@keyframes contact-ellipse-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* ============================================================
+   Feature: 3D Compass Widget
+   ============================================================ */
+
+.hypoid-compass {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+[data-theme="paper"] .hypoid-compass {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.hypoid-compass-axis {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 22px;
+  transform-origin: center top;
+  border-radius: 1px;
+}
+
+.hypoid-compass-axis::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.hypoid-compass-label {
+  position: absolute;
+  font-size: 7px;
+  font-weight: 700;
+  font-family: 'Geist Mono', monospace;
+  pointer-events: none;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+  line-height: 1;
+}
+
+[data-theme="paper"] .hypoid-compass-label {
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   Feature: Parameter Comparison Slider
+   ============================================================ */
+
+.hypoid-compare-slider {
+  accent-color: var(--hypoid-amber);
+}
+
+.hypoid-compare-input {
+  width: 60px;
+  height: 20px;
+  font-size: 9px;
+  text-align: center;
+  background: var(--hypoid-bg-subtle);
+  border: 1px solid var(--hypoid-border-faint);
+  border-radius: 4px;
+  color: var(--hypoid-text);
+  font-family: 'Geist Mono', monospace;
+  padding: 0 4px;
+}
+
+.hypoid-compare-input:focus {
+  outline: none;
+  border-color: var(--hypoid-amber);
+}
+
+/* ============================================================
+   Polish: Enhanced Footer with Gradient Animation
+   ============================================================ */
+
+@keyframes footer-gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hypoid-footer-separator {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--hypoid-amber), var(--hypoid-emerald), transparent);
+  background-size: 200% 100%;
+  animation: footer-gradient-flow 4s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+/* ============================================================
+   Polish: Scroll-to-Top Floating Button
+   ============================================================ */
+
+.hypoid-scroll-top-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 40;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.hypoid-scroll-top-btn:hover {
+  background: rgba(245, 158, 11, 0.3);
+  transform: scale(1.1);
+}
+
+[data-theme="paper"] .hypoid-scroll-top-btn {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #b45309;
+}
+
+/* ============================================================
+   Polish: Better Mobile Touch Targets
+   ============================================================ */
+
+@media (max-width: 1023px) {
+  .hypoid-toggle-row {
+    min-height: 44px;
+    padding: 8px 6px !important;
+  }
+
+  .hypoid-toggle-row .hypoid-switch-mobile {
+    transform: scale(0.8);
+  }
+
+  .hypoid-action-btn-mobile {
+    min-height: 44px;
+    font-size: 11px;
+  }
+
+  .hypoid-section-hover button,
+  .hypoid-section-hover .hypoid-toggle-row {
+    min-height: 40px;
+  }
+}
+
+/* ============================================================
+   Feature: Assembly Diagram SVG
+   ============================================================ */
+
+.hypoid-assembly-svg {
+  width: 100%;
+  border-radius: 6px;
+  background: var(--hypoid-bg-subtle);
+  border: 1px solid var(--hypoid-border-faint);
+}
+
+/* ============================================================
+   Feature: Copy-to-Clipboard Value Cards
+   ============================================================ */
+
+.hypoid-value-copyable {
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hypoid-value-copyable:hover {
+  filter: brightness(1.15);
+}
+
+.hypoid-value-copyable:active {
+  transform: scale(0.98);
+}
+
+.hypoid-copy-toast {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+  font-size: 11px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  animation: hypoid-copy-toast-anim 1.5s ease-out forwards;
+}
+
+@keyframes hypoid-copy-toast-anim {
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  70% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}
