@@ -1,0 +1,4 @@
+1:"$Sreact.fragment"
+2:I[39756,["/hypoid-gear/_next/static/chunks/d12eb619654412dc.js","/hypoid-gear/_next/static/chunks/dfb50df26aaa4ad8.js","/hypoid-gear/_next/static/chunks/4392189f08a7af14.js"],"default"]
+3:I[37457,["/hypoid-gear/_next/static/chunks/d12eb619654412dc.js","/hypoid-gear/_next/static/chunks/dfb50df26aaa4ad8.js","/hypoid-gear/_next/static/chunks/4392189f08a7af14.js"],"default"]
+0:{"buildId":"fn7xmPVo6Mr42IXDgBRXh","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
